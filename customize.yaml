@@ -1,0 +1,192 @@
+input_boolean.beer_fridge:
+  icon: mdi:glass-mug
+  show_last_changed: true
+switch.display:
+  friendly_name: Schmidt's Bar & Grill
+  icon: mdi:flag-variant
+  show_last_changed: true
+switch.garden_light:
+  friendly_name: Spot Jardim
+  icon: mdi:flower
+  show_last_changed: true
+light.luz_central:
+  friendly_name: Luz Central
+  icon: mdi:lightbulb-outline
+  custom_ui_state_card: state-card-custom-ui
+  state_card_mode: break-slider
+  stretch_slider: true
+  hide_control: false
+  show_last_changed: true
+  slider_theme:
+    min: 10
+    max: 200
+    pin: true
+    off_when_min: false
+    report_when_not_changed: false
+  extra_badge:
+    entity_id: sensor.luz_central_watts  # Will take precedence over attribute and unit below.
+    attribute: power_consumption
+    unit: kW
+    blacklist_states: 0
+light.luz_esquerda:
+  friendly_name: Luz Esquerda
+  icon: mdi:lightbulb-outline
+  custom_ui_state_card: state-card-custom-ui
+  state_card_mode: break-slider
+  stretch_slider: true
+  hide_control: false
+  show_last_changed: true
+  slider_theme:
+    min: 10
+    max: 200
+    pin: true
+    off_when_min: false
+    report_when_not_changed: false
+  extra_badge:
+    entity_id: sensor.luz_esquerda_watts  # Will take precedence over attribute and unit below.
+    attribute: power_consumption
+    unit: kW
+    blacklist_states: 0
+light.luz_direita:
+  friendly_name: Luz Direita
+  icon: mdi:lightbulb-outline
+  custom_ui_state_card: state-card-custom-ui
+  state_card_mode: break-slider
+  stretch_slider: true
+  hide_control: false
+  show_last_changed: true
+  slider_theme:
+    min: 10
+    max: 200
+    pin: true
+    off_when_min: false
+    report_when_not_changed: false
+  extra_badge:
+    entity_id: sensor.luz_direita_watts  # Will take precedence over attribute and unit below.
+    attribute: power_consumption
+    unit: kW
+    blacklist_states: 0
+input_boolean.hall_light:
+  icon: mdi:lightbulb-outline
+  show_last_changed: true
+sensor.pws_feelslike_c:
+  friendly_name: Sensação Térmica
+  state_card_mode: badges
+  ha-label-badge-color: green
+  label-badge-background-color: black
+  ha-label-badge-size: 1
+  label-badge-text-color: blue
+sensor.pws_temp_high_1d_c:
+  friendly_name: Máxima
+  state_card_mode: badges
+#  theme: theme.green
+sensor.pws_temp_high_2d_c:
+  friendly_name: Máxima
+  state_card_mode: badges
+sensor.pws_temp_high_3d_c:
+  friendly_name: Máxima
+  state_card_mode: badges
+sensor.pws_temp_high_4d_c:
+  friendly_name: Máxima
+  state_card_mode: badges
+sensor.pws_location:
+  friendly_name: Localização
+  state_card_mode: badges
+sensor.pws_temp_low_1d_c:
+  friendly_name: Mínima
+  state_card_mode: badges
+sensor.pws_temp_low_2d_c:
+  friendly_name: Mínima
+  state_card_mode: badges
+sensor.pws_temp_low_3d_c:
+  friendly_name: Mínima
+  state_card_mode: badges
+sensor.pws_temp_low_4d_c:
+  friendly_name: Mínima
+  state_card_mode: badges
+sensor.pws_precip_1d:
+  friendly_name: Prob. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_4d:
+  friendly_name: Prob. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_3d:
+  friendly_name: Prob. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_2d:
+  friendly_name: Prob. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_2d_mm:
+  friendly_name: Int. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_3d_mm:
+  friendly_name: Int. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_4d_mm:
+  friendly_name: Int. de Chuva
+  state_card_mode: badges
+sensor.pws_precip_today_metric:
+  friendly_name: Int. de Chuva
+  state_card_mode: badges
+sensor.pws_relative_humidity:
+  friendly_name: Humidade Relativa
+  state_card_mode: badges
+sensor.pws_temp_c:
+  friendly_name: Temp.
+  state_card_mode: badges
+input_text.fundos_tiles:
+  custom_ui_state_card: state-card-tiles
+  config:
+    columns: 3
+#    cell_height: 275px
+#    cell_width: 100px
+    column_width: 75px  # optional
+    row_height: 75px    # optional
+    color: blue
+    color_on: "#006437"
+    color_off: "#404040"
+    entities:
+      - entity: light.luz_esquerda
+        image: /local/luz_esquerda.png
+        column: 1
+        row: 1
+      - entity: light.luz_central
+        image: /local/luz_central.png
+        column: 2
+        row: 1
+      - entity: light.luz_direita
+        image: /local/luz_direita.png
+        column: 3
+        row: 1
+      - entity: switch.display
+        image: /local/sign.png
+        column: 1
+        row: 2        
+      - entity: switch.garden_light
+        image: /local/spot.png
+        column: 2
+        row: 2
+      - entity: input_boolean.beer_fridge
+        image: /local/beer.png
+        column: 3
+        row: 2
+      - entity: input_boolean.gate
+        image: /local/gate.png
+        column: 1
+        row: 3
+input_text.quartos_tiles:
+  custom_ui_state_card: state-card-tiles
+  config:
+    columns: 3
+#    cell_height: 100px
+#    cell_width: 100px
+    color: blue
+    color_on: "#006437"
+    color_off: "#404040"
+    column_width: 75px  # optional
+    row_height: 75px    # optional
+    entities:
+      - entity: input_boolean.hall_light
+        image: /local/hall.png
+        column: 1
+        row: 1

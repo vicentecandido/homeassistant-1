@@ -1,0 +1,125 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: FRIS
+  # Location required to calculate the time the sun rises and sets
+  latitude: -25.451
+  longitude: -49.343
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 905
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/Sao_Paulo
+  # Customization file
+  customize: !include customize.yaml
+  customize_glob: !include customize_glob.yaml
+  customize_domain: !include customize_domain.yaml
+  
+frontend: !include frontend.yaml
+  
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables configuration UI
+config:
+
+cloud:
+  alexa:
+    filter:
+      include_domains:
+        - scripts
+        - light
+        - switch
+
+customizer:
+  custom_ui: local
+
+http:
+  # Secrets are defined in the file secrets.yaml
+   api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  # base_url: example.duckdns.org:8123
+  # server_host: 2001:1284:f016:a059:ba27:ebff:fe86:e896
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+#sensor:
+#  - platform: yr
+
+# Text to speech
+tts:
+  - platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+switch: !include switches.yaml
+light: !include lights.yaml
+media_player: !include media_players.yaml
+sensor: !include sensors.yaml
+variable: !include variables.yaml
+input_text: !include input_text.yaml
+device_tracker: !include device_tracker.yaml
+
+ifttt:
+  key: hXuh11X9L13EexMBNYO2JGDS4mbMMqmWPdbbK2YaWvj
+
+input_boolean:
+  hall_light:
+    name: Luz Hall
+    initial: off
+  beer_fridge:
+    name: Cervejeira
+    initial: off
+  gate:
+    name: Partão
+    initial: off
+    
+#telegram_bot:
+#  - platform: polling
+#    api_key: 362729958:AAEovrEKEa88VlU5iC6Mbm7A2_pZJUf5brI 
+#    allowed_chat_ids:
+#      - 328083280
+
+camera:
+  - platform: ffmpeg
+    name: frente
+    input: -rtsp_transport tcp -i rtsp://admin:2350@192.168.86.57/ /config/camera/Frente/frente%d.jpg  
+  - platform: ffmpeg
+    name: fundos
+    input: -rtsp_transport tcp -i rtsp://admin:2350@192.168.86.75/ /config/camera/Fundos/fundos%d.jpg
+  - platform: ffmpeg
+    name: interna
+    input: -rtsp_transport tcp -i rtsp://admin:2350@192.168.86.76/ /config/camera/Interna/interna%d.jpg
+    
+#vacuum:
+#  - platform: roomba
+#    host: 192.168.86.38
+#    username: robsonschmidt@gmail.com
+#    password: 123456@a

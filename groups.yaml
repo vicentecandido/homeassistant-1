@@ -1,0 +1,159 @@
+default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+  - group.tempo
+  - group.churrasqueira
+  - group.quarto
+  - group.sala
+  - group.frente
+  - group.geral
+  - group.configuracao
+  - group.fundos_tiles
+  - group.quartos_tiles
+  name: 'Tela Inicial'
+tempo:
+  name: Temperatura
+  view: yes
+  icon: mdi:weather-sunny
+  entities:
+   - sensor.pws_relative_humidity
+   - sensor.pws_feelslike_c
+   - sensor.pws_temp_c
+   - group.tempo_hoje
+   - group.tempo_amanha
+   - group.tempo_2dias
+   - group.tempo_3dias
+tempo_hoje:
+  name: 'Previsão de Hoje'
+  entities:
+   - sensor.pws_temp_low_1d_c
+   - sensor.pws_temp_high_1d_c
+   - sensor.pws_precip_1d
+   - sensor.pws_precip_today_metric
+churrasqueira:
+  name: Churrasqueira
+  view: yes
+  icon: mdi:beer
+  entities:
+  - group.churrasqueira_luz
+  - group.cervejeira
+churrasqueira_luz:
+  name: 'Iluminação'
+  entities:
+  - switch.display
+  - switch.garden_light
+  - light.luz_esquerda
+  - light.luz_central
+  - light.luz_direita
+cervejeira:
+  name: Cervejeira
+  entities:
+  - input_boolean.beer_fridge
+quarto:
+  name: Quartos
+  view: yes
+  icon: mdi:lamp
+  entities:
+  - script.tv_quarto
+  - script.chrome
+  - script.net
+  - switch.liga_net
+  - switch.liga_tv
+  - media_player.quarto
+  - group.quarto_luz
+quarto_luz:
+  name: 'Iluminação'
+  entities:
+  - input_boolean.hall_light
+sala:
+  name: Sala
+  view: yes
+  icon: mdi:sofa
+  entities:
+  - media_player.tv_sala
+  - media_player.sala
+  - script.tv_sala_off
+  - script.tv_sala_source
+  - script.tv_sala_volume_up
+  - script.tv_sala_volume_down
+  - script.tv_sala_mute
+  - camera.interna
+frente:
+  name: Frente
+  view: yes
+  icon: mdi:cctv
+  entities:
+  - camera.frente
+geral:
+  name: Geral
+  view: yes
+  icon: mdi:spotify
+  entities:
+  - media_player.spotify
+tempo_amanha:
+  name: 'Previsão Amanhã'
+  entities:
+   - sensor.pws_temp_low_2d_c
+   - sensor.pws_temp_high_2d_c
+   - sensor.pws_precip_2d
+   - sensor.pws_precip_2d_mm
+tempo_2dias:
+  name: 'Previsão 2 dias'
+  entities:
+   - sensor.pws_temp_low_3d_c
+   - sensor.pws_temp_high_3d_c
+   - sensor.pws_precip_3d
+   - sensor.pws_precip_3d_mm
+tempo_3dias:
+  name: 'Previsão 3 dias'
+  entities:
+   - sensor.pws_temp_low_4d_c
+   - sensor.pws_temp_high_4d_c
+   - sensor.pws_precip_4d
+   - sensor.pws_precip_4d_mm
+configuracao:
+  name: 'Configuração'
+  view: yes
+  icon: mdi:switch
+  entities:
+  - group.servidor
+  - group.teste_velocidade
+  - group.google_wifi
+servidor:
+  name: Servidor
+  entities:
+  - sensor.ram_used
+  - sensor.disk_used_
+  - sensor.process
+  - sensor.swap_used
+  - sensor.average_load_1m
+  - sensor.average_load_15m
+  - sensor.cpu_used
+  - sensor.last_boot
+teste_velocidade:
+  name: 'Teste de Velocidade'
+  entities:
+  - sensor.speedtest_download
+  - sensor.speedtest_upload
+  - sensor.speedtest_ping
+google_wifi:
+  name: 'Google Wifi'
+  entities:
+  - sensor.google_wifi_current_version
+  - sensor.google_wifi_last_restart
+  - sensor.google_wifi_local_ip
+  - sensor.google_wifi_new_version
+  - sensor.google_wifi_status
+  - sensor.google_wifi_uptime
+fundos_tiles:
+    name: Térreo
+    entities:
+      - input_text.fundos_tiles
+      - camera.frente
+      - camera.fundos
+      - camera.interna
+quartos_tiles:
+    name: Quartos
+    entities:
+      - input_text.quartos_tiles

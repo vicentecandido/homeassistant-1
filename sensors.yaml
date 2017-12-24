@@ -1,0 +1,79 @@
+- platform: wunderground
+  api_key: af39e8e94f6eae72
+  monitored_conditions:
+     - location
+     - feelslike_c
+     - precip_today_metric
+     - temp_c
+     - relative_humidity
+     - temp_high_1d_c
+     - temp_low_1d_c
+     - precip_1d
+     - temp_high_2d_c
+     - temp_low_2d_c
+     - precip_2d
+     - precip_2d_mm
+     - temp_high_3d_c
+     - temp_low_3d_c
+     - precip_3d
+     - precip_3d_mm
+     - temp_high_4d_c
+     - temp_low_4d_c
+     - precip_4d
+     - precip_4d_mm
+- platform: speedtest
+  minute:
+     - 0
+  monitored_conditions:
+     - ping
+     - download
+     - upload
+- platform: systemmonitor
+  resources:
+     - type: disk_use_percent
+       arg: /
+     - type: memory_use_percent
+     - type: swap_use_percent
+     - type: load_1m
+     - type: load_15m
+     - type: processor_use
+     - type: last_boot
+- platform: google_wifi
+- platform: template
+  sensors:
+    luz_central_amps:
+      value_template: '{{ states.light.luz_central.attributes["current"] | replace(" A", "") | float }}'
+      unit_of_measurement: 'A'
+    luz_central_watts:
+      value_template: '{{ states.light.luz_central.attributes["current_consumption"] | replace(" W", "") | float * 0.001 }}'
+      unit_of_measurement: 'kW'
+    luz_central_kwy:
+      value_template: '{{ states.light.luz_central.attributes["total_consumption"] | replace(" kW", "") | float }}'
+      unit_of_measurement: 'kW'
+    luz_central_volts:
+      value_template: '{{ states.light.luz_central.attributes["voltage"] | replace(" V", "") | float }}'
+      unit_of_measurement: 'V'
+    luz_esquerda_amps:
+      value_template: '{{ states.light.luz_esquerda.attributes["current"] | replace(" A", "") | float }}'
+      unit_of_measurement: 'A'
+    luz_esquerda_watts:
+      value_template: '{{ states.light.luz_esquerda.attributes["current_consumption"] | replace(" W", "") | float * 0.001  }}'
+      unit_of_measurement: 'kW'
+    luz_esquerda_kwy:
+      value_template: '{{ states.light.luz_esquerda.attributes["total_consumption"] | replace(" kW", "") | float }}'
+      unit_of_measurement: 'kW'
+    luz_esquerda_volts:
+      value_template: '{{ states.light.luz_esquerda.attributes["voltage"] | replace(" V", "") | float }}'
+      unit_of_measurement: 'V'
+    luz_direita_amps:
+      value_template: '{{ states.light.luz_direita.attributes["current"] | replace(" A", "") | float }}'
+      unit_of_measurement: 'A'
+    luz_direita_watts:
+      value_template: '{{ states.light.luz_direita.attributes["current_consumption"] | replace(" W", "") | float * 0.001 }}'
+      unit_of_measurement: 'kW'
+    luz_direita_kwy:
+      value_template: '{{ states.light.luz_direita.attributes["total_consumption"] | replace(" kW", "") | float }}'
+      unit_of_measurement: 'kW'
+    luz_direita_volts:
+      value_template: '{{ states.light.luz_direita.attributes["voltage"] | replace(" V", "") | float }}'
+      unit_of_measurement: 'V'      

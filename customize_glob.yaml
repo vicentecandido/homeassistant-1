@@ -1,0 +1,8 @@
+'*.*':
+  custom_ui_state_card: state-card-custom-ui
+sensor.pws_temp_c:
+  state_card_mode: badges  
+sensor.pws_feelslike_c:
+  state_card_mode: badges  
+sensor.pws_relative_humidity:
+  state_card_mode: badges

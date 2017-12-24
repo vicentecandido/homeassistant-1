@@ -1,0 +1,52 @@
+- action:
+  - data:
+      event: hall_light_on
+      value1: 'on'
+    service: ifttt.trigger
+  alias: Hall Light On
+  condition: []
+  id: '1513562930930'
+  trigger:
+  - entity_id: input_boolean.hall_light
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      event: hall_light_off
+      value1: 'off'
+    service: ifttt.trigger
+  alias: Hall Light Off
+  condition: []
+  id: '1513562995349'
+  trigger:
+  - entity_id: input_boolean.hall_light
+    from: 'on'
+    platform: state
+    to: 'off'
+- action:
+  - data:
+      event: beer_fridge_on
+      value1: 'on'
+    service: ifttt.trigger
+  alias: Beer Fridge On
+  condition: []
+  id: '1513563051024'
+  trigger:
+  - entity_id: input_boolean.beer_fridge
+    from: 'off'
+    platform: state
+    to: 'on'
+- action:
+  - data:
+      event: beer_fridge_off
+      value1: 'off'
+    service: ifttt.trigger
+  alias: Beer Fridge Off
+  condition: []
+  id: '1513563084506'
+  trigger:
+  - entity_id: input_boolean.beer_fridge
+    from: 'on'
+    platform: state
+    to: 'off'

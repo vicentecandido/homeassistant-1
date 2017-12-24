@@ -1,0 +1,6 @@
+  command:
+    name: Button
+  fundos_tiles:
+    name: fundos
+  quartos_tiles:
+    name: quartos
